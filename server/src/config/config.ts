@@ -10,7 +10,7 @@ export const config = {
 
     //  MONGO_URI : mongodb+srv://admin:FYv5jqnidHPCxCOr@testing.s5sej.mongodb.net/?retryWrites:true&w:majority,
     MONGO_URI_TESTING:
-        "mongodb+srv://admin:FYv5jqnidHPCxCOr@testing.s5sej.mongodb.net/testingNotes?retryWrites=true&w=majority",
+        "mongodb+srv://admin:FYv5jqnidHPCxCOr@testing.s5sej.mongodb.net/koinX?retryWrites=true&w=majority",
 
     // MONGO_URI : mongodb://172.17.0.2:27017/testDB,
 };
