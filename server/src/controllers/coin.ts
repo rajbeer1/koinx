@@ -67,9 +67,9 @@ class CoinController {
         try {
             const { coinId } = req.params;
             console.log("Params", coinId);
-            const data = await coinGecko.currencyHoldingComapnies(coinId);
+            // const data = await coinGecko.currencyHoldingComapnies(coinId);
             res.status(200).json({
-                data: data.companies,
+                data: "data?.companies",
             });
         } catch (err) {
             next(err);
