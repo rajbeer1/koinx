@@ -3,6 +3,7 @@ import { config } from "./config/config";
 import { connection } from "./config/connection";
 import "dotenv/config";
 import { coinGecko } from "./services/lib/coin_gecko";
+import { reloadCoinGeckoDataCron } from "./utils/helper/cron";
 function checkEnv() {
     const env = [
         "PORT",
@@ -19,13 +20,19 @@ function checkEnv() {
         }
     });
 }
-
+const cron = async () => {
+    try {
+        await reloadCoinGeckoDataCron();
+    } catch (error) {
+        console.log(error);
+    }
+};
 async function initServer() {
     checkEnv();
     const port = process.env.PORT!;
     try {
         await connection(config.MONGO_URI_TESTING);
-        // await coinGecko.listCoins();
+        cron();
         console.log("Connected to Mongodb");
     } catch (err) {
         if (err instanceof Error) {
