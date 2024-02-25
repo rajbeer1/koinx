@@ -2,6 +2,7 @@ import { app } from "./app";
 import { config } from "./config/config";
 import { connection } from "./config/connection";
 import "dotenv/config";
+import { coinGecko } from "./services/lib/coin_gecko";
 function checkEnv() {
     const env = [
         "PORT",
@@ -24,6 +25,7 @@ async function initServer() {
     const port = process.env.PORT!;
     try {
         await connection(config.MONGO_URI_TESTING);
+        // await coinGecko.listCoins();
         console.log("Connected to Mongodb");
     } catch (err) {
         if (err instanceof Error) {
