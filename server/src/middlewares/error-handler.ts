@@ -6,8 +6,8 @@ export const errorHandler = (
     res: Response,
     next: NextFunction
 ) => {
-    console.log(err);
     if (err instanceof Error) {
+        console.log(err.message);
         return res.status(400).json({
             errors: [
                 {

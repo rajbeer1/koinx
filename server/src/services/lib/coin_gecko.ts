@@ -29,6 +29,7 @@ class CoinGecko {
                     "content-type": "application/json",
                 },
             });
+            console.log(data);
             return data;
         } catch (err) {
             throw err;
