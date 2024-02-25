@@ -21,6 +21,7 @@ class CoinGecko {
         }
     ): Promise<any> {
         try {
+            console.log(this.url + route, options);
             const { data } = await axios({
                 url: this.url + route,
                 ...options,
@@ -32,6 +33,9 @@ class CoinGecko {
             console.log(data);
             return data;
         } catch (err) {
+            if (err instanceof Error) {
+                console.log(err.message);
+            }
             throw err;
         }
     }
